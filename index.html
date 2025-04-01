@@ -7977,15 +7977,15 @@
                                         </div>
                                         <div id="COUNTDOWN_ITEM2" class="ladi-element" data-item-type="hour">
                                             <div class="ladi-countdown-background ladi-lazyload"></div>
-                                            <div class="ladi-countdown-text"><span>11</span></div>
+                                            <div class="ladi-countdown-text"><span>10</span></div>
                                         </div>
                                         <div id="COUNTDOWN_ITEM3" class="ladi-element" data-item-type="minute">
                                             <div class="ladi-countdown-background ladi-lazyload"></div>
-                                            <div class="ladi-countdown-text"><span>36</span></div>
+                                            <div class="ladi-countdown-text"><span>30</span></div>
                                         </div>
                                         <div id="COUNTDOWN_ITEM4" class="ladi-element" data-item-type="seconds">
                                             <div class="ladi-countdown-background ladi-lazyload"></div>
-                                            <div class="ladi-countdown-text"><span>22</span></div>
+                                            <div class="ladi-countdown-text"><span>00</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -8007,9 +8007,9 @@
                 </div>
                 <div id="PARAGRAPH19" class="ladi-element ladi-animation-hidden">
                     <div class="ladi-paragraph">
-                        11h00p Chủ Nhật, Ngày 16 - 06 - 2024<br />Tức ngày
-                        11 - 05 - 2024
-                        Giáp Thìn<br />
+                        10h30p Thứ Bảy, Ngày 12 - 04 - 2024<br />Tức ngày
+                        15 - 03 - 2024
+                        Ất Tỵ<br />
                     </div>
                 </div>
                 <!-- <div id="PARAGRAPH59" class="ladi-element ladi-animation-hidden">
@@ -10393,6 +10393,35 @@
             }
         </style>
     </div>
+    <script>
+        // filepath: d:\Freelancer\duy.han\index.html
+        // Set the target date and time for the countdown
+        const targetDate = new Date("2025-04-12T10:30:00").getTime();
+    
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+    
+            if (timeLeft >= 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+                // Update the countdown elements
+                document.querySelector("#COUNTDOWN_ITEM1 .ladi-countdown-text span").textContent = days;
+                document.querySelector("#COUNTDOWN_ITEM2 .ladi-countdown-text span").textContent = hours;
+                document.querySelector("#COUNTDOWN_ITEM3 .ladi-countdown-text span").textContent = minutes;
+                document.querySelector("#COUNTDOWN_ITEM4 .ladi-countdown-text span").textContent = seconds;
+            } else {
+                // Countdown has ended
+                document.querySelector("#COUNTDOWN1").innerHTML = "<p>Hôn lễ đã bắt đầu!</p>";
+            }
+        }
+    
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 
 </html>
