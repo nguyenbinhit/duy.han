@@ -6999,11 +6999,18 @@
                 musicPlayer.pause();
                 playPauseButton.classList.remove("playing");
             } else {
-                musicPlayer.play();
+                musicPlayer.play().catch(function (error) {
+                    console.error("Không thể phát nhạc:", error);
+                });
                 playPauseButton.classList.add("playing");
             }
             isPlaying = !isPlaying; // Chuyển trạng thái đang phát hoặc tạm dừng
         }
+
+        // Lắng nghe sự kiện click trên toàn bộ tài liệu
+        document.addEventListener("click", function () {
+            toggleMusic();
+        }, { once: true }); // Chỉ chạy một lần
     </script>
 
     <script>
